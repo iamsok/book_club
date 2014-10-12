@@ -1,9 +1,15 @@
+<p> Title: <%= "#{@book.title}" %> by <%= "#{@book.author}" %></p>
+<p> Year: <%= "#{@book.year}"  %> :: Category: <%= "#{@book.category}"  %></p>
+<p>Description: <%= @book.description %></p>
 
-    <p> Title: <%= @book.title %></p>
-    <p> Author: <%= @book.author %></p>
-    <p> Year: <%= @book.year %></p>
-    <p> Category: <%= @book.category %></p>
-    <p>Description: <%= @book.description %></p>
+<%= link_to "Add Review", new_book_review_path(@book) %>
+<br>
+</br>
 
+<% @reviews.each do |review| %>
+  <h6><p> Title: <%= review.title %></p></h6>
+  <h6><p> Body: <%= review.body %></p></h6>
+  <h6><p> Rating: <%= review.rating %></p></h6>
+<% end %>
 
 <%= link_to 'Back', books_path %>

@@ -1,15 +1,16 @@
 require 'rails_helper'
 
-feature "User adds review" do
+feature "User views a list of books" do
 
-  scenario 'user creates review for a book' do
-    review = FactoryGirl.build(:review)
-    click_on "Harry Potter{n}"
-    visit book_path(book)
+  scenario 'user views list of books' do
+    book = FactoryGirl.create(:book)
+
+    visit book_path
+    click_on "Add Review"
     fill_in "Title", with: review.title
-    fill_in "Body", with: review.bpdy
+    fill_in "Body", with: review.body
     select review.rating, from: "Rating"
-    click_on "Add review"
-    expect(page).to have_content("Review created successfully")
+    click_on "Add New Review"
+    expect(page).to have_content("Review was successfully added")
   end
 end
