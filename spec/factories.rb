@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :book do
     sequence :title do |n|
-     "Harry Potter{n}"
+     "Harry Potter #{n}"
     end
     author "J.K Rowling"
     year 2001
