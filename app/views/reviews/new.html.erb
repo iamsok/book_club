@@ -1,0 +1,34 @@
+  <h2> Add a New Review </h2>
+
+  <%= form_for [@book, @review] do |f| %>
+  <% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being submitted:</h2>
+    <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :body %><br />
+    <%= f.text_field :body %>
+  </div>
+
+  <div>
+    <%= f.label :rating %>
+    <%= f.select :rating, (1..5) %>
+  </div>
+
+
+  <div><%= f.submit "Add New Review", class: "button active" %></div>
+
+  <%= link_to 'Back', book_path(@book) %>
+<% end %>

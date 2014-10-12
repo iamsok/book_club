@@ -12,7 +12,7 @@ end
 
 FactoryGirl.define do
   factory :review do
-    title "This show sucks"
+    title "This book sucks"
     body "I didnt like this book because it was dull"
     rating 3
     association :book
