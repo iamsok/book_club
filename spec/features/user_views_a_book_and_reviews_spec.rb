@@ -26,6 +26,5 @@ feature "User adds review" do
     select review.rating, from: "Rating"
     click_on "Add New Review"
     expect(page).to have_content("Review was successfully added")
-    save_and_open_page
   end
 end
